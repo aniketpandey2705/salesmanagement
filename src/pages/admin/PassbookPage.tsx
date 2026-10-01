@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { supabase } from '../../lib/supabase';
-import { BookOpen, Calendar, ArrowDownCircle, ArrowUpCircle, Filter } from 'lucide-react';
+import { BookOpen, Calendar, Filter } from 'lucide-react';
 
 export default function PassbookPage() {
   const [orders, setOrders] = useState<any[]>([]);
@@ -206,7 +206,7 @@ export default function PassbookPage() {
               {displayData.length === 0 ? (
                 <tr><td colSpan={7} className="text-center py-8 text-[14px] font-black uppercase text-black">No transactions found.</td></tr>
               ) : (
-                displayData.map((row: any, idx: number) => {
+                displayData.map((row: any) => {
                   if (groupBy === 'none') {
                     // Rendering individual order
                     const dateObj = new Date(row.created_at);

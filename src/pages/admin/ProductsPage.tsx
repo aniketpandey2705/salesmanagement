@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Plus, Trash2, PackagePlus, Eye, TrendingUp, Package, IndianRupee } from 'lucide-react';
+import { Plus, Trash2, PackagePlus, TrendingUp, Package } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 
 export default function ProductsPage() {

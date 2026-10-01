@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Plus, Eye, ShieldOff, MessageSquare, IndianRupee, Package, Send } from 'lucide-react';
+import { Plus, Eye, MessageSquare, Send } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 
 export default function SellersPage() {

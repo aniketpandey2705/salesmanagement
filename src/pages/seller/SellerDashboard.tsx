@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Plus, Minus, LogOut, TrendingUp, Wallet, ShoppingBag, X, Check, User, IndianRupee, Pencil } from 'lucide-react';
+import { Plus, Minus, LogOut, ShoppingBag, X, Check, User, IndianRupee, Pencil } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import { useNavigate } from 'react-router-dom';
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../../lib/supabase';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { AlertCircle, Calendar, ChevronDown, ArrowUp } from 'lucide-react';
+import { AlertCircle, Calendar, ChevronDown } from 'lucide-react';
 
 export default function AdminDashboard() {
   const [timeRange, setTimeRange] = useState('7d');
@@ -22,7 +22,7 @@ export default function AdminDashboard() {
     unpaid_dues: 0 
   });
   const [topProducts, setTopProducts] = useState<any[]>([]);
-  const [sellers, setSellers] = useState<any[]>([]);
+
   const [recentOrders, setRecentOrders] = useState<any[]>([]);
   const [chartData, setChartData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -133,7 +133,6 @@ export default function AdminDashboard() {
         unitsSold, totalProfitAllTime, unpaid_dues 
       });
       setTopProducts(Object.values(productMap).sort((a:any, b:any) => b.revenue - a.revenue).slice(0, 10));
-      setSellers(Object.values(sellerMap).sort((a:any, b:any) => b.revenue - a.revenue));
     }
     
     setLoading(false);
@@ -315,7 +314,7 @@ export default function AdminDashboard() {
             
             <div className="space-y-4 max-h-[400px] overflow-y-auto custom-scrollbar pr-2">
               {recentOrders.length === 0 ? <p className="text-[14px] font-black uppercase">No orders yet</p> : null}
-              {recentOrders.map((order, i) => (
+              {recentOrders.map((order) => (
                 <div key={order.id} className={`brutal-box p-3 ${
                   order.payment_status === 'paid' ? 'bg-[#4ade80]' :
                   order.payment_status === 'partial' ? 'bg-[#fde047]' :
